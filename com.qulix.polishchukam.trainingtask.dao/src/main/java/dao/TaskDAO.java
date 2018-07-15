@@ -18,4 +18,6 @@ public interface TaskDAO {
     Task getTaskById(int id);
 
     List<Task> getTasksByProject(Project project);
+
+    int getMaxTaskId();
 }

@@ -34,3 +34,9 @@ subprojects {
 
 //for HSQLDB
 apply from: 'HSQLDB.gradle'
+
+//Wrapper
+task wrapper(type: Wrapper) {
+    group = 'wrapper'
+    gradleVersion = "4.7"
+}

@@ -16,5 +16,7 @@ public interface ProjectDAO {
 
     Project getProjectById(int id);
 
+    int getMaxProjectId();
+
 
 }

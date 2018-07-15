@@ -24,5 +24,8 @@ public class ConstantsSQL {
     public static final String SQL_QUERY_UPDATE_PROJECT_BY_ID = "UPDATE project SET name = ?, short_name = ?, description = ? WHERE id = ?";
     public static final String SQL_QUERY_DELETE_PROJECT_BY_ID = "DELETE FROM project WHERE id = ?";
 
+    public static final String SQL_QUERY_MAX_PROJECT_ID = "SELECT MAX(id) FROM project";
+    public static final String SQL_QUERY_MAX_TASK_ID = "SELECT MAX(id) FROM task";
+
 
 }

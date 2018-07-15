@@ -7,7 +7,7 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <div class="topnav">
-    <a href="/jsp/list-of-projects.jsp">List of projects</a>
-    <a href="/jsp/list-of-tasks.jsp">List of tasks</a>
-    <a href="/jsp/list-of-collaborators.jsp">List of workers</a>
+    <a href="${pageContext.request.contextPath}/list-of-projects">Проекты</a>
+    <a href="${pageContext.request.contextPath}/list-of-tasks">Задачи</a>
+    <a href="${pageContext.request.contextPath}/list-of-collaborators">Персоны</a>
 </div>

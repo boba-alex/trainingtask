@@ -29,4 +29,8 @@ public class ProjectService {
     public Project getProjectById(int id) {
         return projectDAO.getProjectById(id);
     }
+
+    public int getMaxProjectId(){
+        return projectDAO.getMaxProjectId();
+    }
 }

@@ -8,16 +8,16 @@ public class PathManager {
     private ResourceBundle resourceBundle;
     private static final String BUNDLE_NAME = "config";
 
-    public static final String INDEX_PAGE_PATH = "INDEX_PAGE_PATH";
+    public static final String INDEX_URL_PATH = "INDEX_URL_PATH";
     public static final String ERROR_PAGE_PATH = "ERROR_PAGE_PATH";
 
-    public static final String LIST_OF_COLLABORATORS_PAGE_PATH = "LIST_OF_COLLABORATORS_PAGE_PATH";
-    public static final String LIST_OF_TASKS_PAGE_PATH = "LIST_OF_TASKS_PAGE_PATH";
-    public static final String LIST_OF_PROJECTS_PAGE_PATH = "LIST_OF_PROJECTS_PAGE_PATH";
+    public static final String LIST_OF_COLLABORATORS_URL_PATH = "LIST_OF_COLLABORATORS_URL_PATH";
+    public static final String LIST_OF_TASKS_URL_PATH = "LIST_OF_TASKS_URL_PATH";
+    public static final String LIST_OF_PROJECTS_URL_PATH = "LIST_OF_PROJECTS_URL_PATH";
 
-    public static final String ADD_COLLABORATOR_PAGE_PATH = "ADD_COLLABORATOR_PAGE_PATH";
-    public static final String ADD_TASK_PAGE_PATH = "ADD_TASK_PAGE_PATH";
-    public static final String ADD_PROJECT_PAGE_PATH = "ADD_PROJECT_PAGE_PATH";
+    public static final String ADD_COLLABORATOR_URL_PATH = "ADD_COLLABORATOR_URL_PATH";
+    public static final String ADD_TASK_URL_PATH = "ADD_TASK_URL_PATH";
+    public static final String ADD_PROJECT_URL_PATH = "ADD_PROJECT_URL_PATH";
 
     public static PathManager getInstance() {
         if (instance == null) {

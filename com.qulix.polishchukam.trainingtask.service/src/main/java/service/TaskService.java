@@ -34,4 +34,8 @@ public class TaskService {
     public ArrayList<Task> getTasksByProject(Project project) {
         return (ArrayList<Task>) taskDAO.getTasksByProject(project);
     }
+
+    public int getMaxTaskId(){
+        return taskDAO.getMaxTaskId();
+    }
 }

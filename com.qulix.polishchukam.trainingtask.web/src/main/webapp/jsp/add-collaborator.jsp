@@ -6,59 +6,63 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
-    <title>Add collaborator</title>
-    <link rel="stylesheet" type="text/css" href="/css/style.css">
+    <title>Форма ввода персоны</title>
+    <link rel="stylesheet" type="text/css" href="../css/style.css">
 </head>
 <body>
 <jsp:include page="/jsp/header.jsp"/>
-<form name="add-collaborator-form" action="${pageContext.request.contextPath}/controller" method="GET">
+<form name="add-collaborator-form" action="${pageContext.request.contextPath}/controller" method="POST">
     <input type="hidden" name="command" value="save-collaborator"/>
     <table class="mysimpletable-table">
         <thead>
         <tr>
-            <th>Property</th>
-            <th>Value</th>
+            <th></th>
+            <th></th>
         </tr>
         </thead>
         <tbody>
         <tr>
-            <td>Id</td>
-            <td><input type="text" disabled="disabled" name="id"
-                       value="${sessionScope.collaborator != null ? sessionScope.collaborator.id : ''}"></td>
+            <td>Идентификатор</td>
+            <td><input type="text" readonly name="id"
+                       value="${requestScope.collaborator != null ? requestScope.collaborator.id : ''}"></td>
         </tr>
         <tr>
-            <td>Surname</td>
+            <td>Фамилия</td>
             <td><input type="text" name="surname" id="surname"
-                       value="${sessionScope.collaborator != null ? sessionScope.collaborator.surname : ''}" required
-                       pattern="[a-zA-Zа-яА-Я]{3,}" title="Please, enter at least 3 characters">
+                       value="${requestScope.collaborator != null ? requestScope.collaborator.surname : ''}" required
+                       pattern="[a-zA-Z\u0400-\u044F\u0451]+([-. ']{1}[a-zA-Z\u0400-\u044F\u0451]{1,})*" title="Пожалуйста, введите минимум 1 букву. Далее можно вводить в цикле -. ' и затем произвольное количество(<=20) букв." minlength="1" maxlength="20">
             </td>
         </tr>
         <tr>
-            <td>Name</td>
+            <td>Имя</td>
             <td><input type="text" name="name"
-                       value="${sessionScope.collaborator != null ? sessionScope.collaborator.name : ''}" required
-                       pattern="[a-zA-Zа-яА-Я]{3,}" title="Please, enter at least 3 characters"></td>
+                       value="${requestScope.collaborator != null ? requestScope.collaborator.name : ''}" required
+                       pattern="[a-zA-Z\u0400-\u044F\u0451]+([-. ']{1}[a-zA-Z\u0400-\u044F\u0451]{1,})*" title="Пожалуйста, введите минимум 1 букву. Далее можно вводить в цикле -. ' и затем произвольное количество(<=20) букв." minlength="1" maxlength="20"></td>
         </tr>
         <tr>
-            <td>Patronymic</td>
+            <td>Отчество</td>
             <td><input type="text" name="patronymic"
-                       value="${sessionScope.collaborator != null ? sessionScope.collaborator.patronymic : ''}" required
-                       pattern="[a-zA-Zа-яА-Я]{3,}" title="Please, enter at least 3 characters"></td>
+                       value="${requestScope.collaborator != null ? requestScope.collaborator.patronymic : ''}" required
+                       pattern="[a-zA-Z\u0400-\u044F\u0451]+([-. ']{1}[a-zA-Z\u0400-\u044F\u0451]{1,})*" title="Пожалуйста, введите минимум 1 букву. Далее можно вводить в цикле -. ' и затем произвольное количество(<=20) букв." minlength="1" maxlength="20"></td>
         </tr>
         <tr>
-            <td>Position</td>
+            <td>Должность</td>
             <td><input type="text" name="position"
-                       value="${sessionScope.collaborator != null ? sessionScope.collaborator.position : ''}" required
-                       pattern="[a-zA-Zа-яА-Я]{2,}" title="Please, enter at least 2 characters"></td>
+                       value="${requestScope.collaborator != null ? requestScope.collaborator.position : ''}" required
+                       pattern="[a-zA-Z\u0400-\u044F\u0451]+([-. ']{1}[a-zA-Z\u0400-\u044F\u0451]{1,})*" title="Пожалуйста, введите минимум 1 букву. Далее можно вводить в цикле -. ' и затем произвольное количество(<=20) букв." minlength="1" maxlength="20"></td>
         </tr>
         </tbody>
     </table>
     <br><br>
     <p class="center-p">
-        <a href="list-of-collaborators.jsp" style="text-decoration: none" class="mybutton">Cancel</a>
-        <input type="submit" name="buttonAddCollaborator" value="Save" class="mybutton"/>
+        <c:url var="cancel" value="${pageContext.request.contextPath}/controller">
+            <c:param name="command" value="cancel-collaborator"/>
+        </c:url>
+        <a href="${cancel}" style="text-decoration: none" class="mybutton">Отмена</a>
+        <input type="submit" name="buttonSave" value="Сохранить" class="mybutton"/>
     </p>
 </form>
 </body>

@@ -9,29 +9,30 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
-    <title>List of projects</title>
-    <link rel="stylesheet" type="text/css" href="/css/style.css">
+    <title>Список проектов</title>
+    <link rel="stylesheet" type="text/css" href="../css/style.css">
 </head>
 <body>
 <jsp:include page="/jsp/header.jsp"/>
 <div class="mypadding-div">
     <c:url var="addLink" value="${pageContext.request.contextPath}/controller">
         <c:param name="command" value="add-project"/>
+        <c:param name="project-is-new" value="project-is-new"/>
     </c:url>
     <a href="${addLink}">
-        <button class="mybutton">Add+</button>
+        <button class="mybutton">Добавить</button>
     </a>
 </div>
 <jsp:useBean id="projectService" class="service.ProjectService"/>
 <table class="mytable-table mytable-table-horizontal mytable-table-highlight">
     <thead>
     <tr>
-        <th>Id</th>
-        <th>Name</th>
-        <th>Short name</th>
-        <th>Description</th>
-        <th>Edit</th>
-        <th>Delete</th>
+        <th>Идентификатор</th>
+        <th>Название</th>
+        <th>Сокращенное название</th>
+        <th>Описание</th>
+        <th></th>
+        <th></th>
     </tr>
     </thead>
     <tbody>
@@ -48,10 +49,10 @@
             <td>${eachProject.id}</td>
             <td>${eachProject.name}</td>
             <td>${eachProject.shortName}</td>
-            <td><textarea>${eachProject.description}</textarea></td>
-            <td><a href="${editLink}">Edit</a></td>
+            <td><label><textarea class="textarea-noresize" readonly>${eachProject.description}</textarea></label></td>
+            <td><a href="${editLink}">Изменить</a></td>
             <td><a href="${deleteLink}"
-                   onclick="if (!(confirm('Are u sure u want to delete this project?'))) return false">Delete
+                   onclick="if (!(confirm('Вы уверены, что хотите удалить этот проект?'))) return false">Удалить
             </a></td>
         </tr>
     </c:forEach>

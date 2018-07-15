@@ -9,8 +9,8 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
-    <title>List of tasks</title>
-    <link rel="stylesheet" type="text/css" href="/css/style.css">
+    <title>Список задач</title>
+    <link rel="stylesheet" type="text/css" href="../css/style.css">
 </head>
 <body>
 <jsp:include page="/jsp/header.jsp"/>
@@ -19,24 +19,22 @@
         <c:param name="command" value="add-task"/>
     </c:url>
     <a href="${addLink}">
-        <button class="mybutton">Add+</button>
+        <button class="mybutton">Добавить</button>
     </a>
 </div>
 <jsp:useBean id="taskService" class="service.TaskService"/>
 <table class="mytable-table mytable-table-horizontal mytable-table-highlight">
     <thead>
     <tr>
-        <th>Id</th>
-        <th>Project short name</th>
-        <th>Name</th>
-        <th>Start date</th>
-        <th>Finish date</th>
-        <th>Surname</th>
-        <th>Name</th>
-        <th>Patronymic</th>
-        <th>Status</th>
-        <th>Edit</th>
-        <th>Delete</th>
+        <th>Идентификатор</th>
+        <th>Проект (Сокращенное название)</th>
+        <th>Название</th>
+        <th>Дата начала</th>
+        <th>Дата окончания</th>
+        <th>Исполнитель (ФИО)</th>
+        <th>Статус</th>
+        <th></th>
+        <th></th>
     </tr>
     </thead>
     <tbody>
@@ -55,13 +53,16 @@
             <td>${eachTask.name}</td>
             <td>${eachTask.beginTime}</td>
             <td>${eachTask.endTime}</td>
-            <td>${eachTask.collaborator.surname}</td>
-            <td>${eachTask.collaborator.name}</td>
-            <td>${eachTask.collaborator.patronymic}</td>
-            <td>${eachTask.taskStatus}</td>
-            <td><a href="${editLink}">Edit</a></td>
+            <td>${eachTask.collaborator.surname} ${eachTask.collaborator.name} ${eachTask.collaborator.patronymic}</td>
+            <td>
+                <c:if test="${eachTask.taskStatus == 'NOT_STARTED'}">Не начата</c:if>
+                <c:if test="${eachTask.taskStatus == 'IN_PROGRESS'}">В процессе</c:if>
+                <c:if test="${eachTask.taskStatus == 'COMPLETED'}">Завершена</c:if>
+                <c:if test="${eachTask.taskStatus == 'POSTPONED'}">Отложена</c:if>
+            </td>
+            <td><a href="${editLink}">Изменить</a></td>
             <td><a href="${deleteLink}"
-                   onclick="if (!(confirm('Are u sure u want to delete this task?'))) return false">Delete
+                   onclick="if (!(confirm('Вы уверены, что хотите удалить эту задачу?'))) return false">Удалить
             </a></td>
         </tr>
     </c:forEach>

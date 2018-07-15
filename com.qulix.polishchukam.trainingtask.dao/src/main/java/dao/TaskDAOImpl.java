@@ -136,6 +136,27 @@ public class TaskDAOImpl implements TaskDAO {
         return tasks;
     }
 
+    @Override
+    public int getMaxTaskId() {
+        Connection connection = DBHelper.getConnection();
+        Statement statement = null;
+        ResultSet resultSet = null;
+        int maxTaskId = 0;
+        try {
+            statement = connection.createStatement();
+            resultSet = statement.executeQuery(ConstantsSQL.SQL_QUERY_MAX_TASK_ID);
+            resultSet.next();
+            maxTaskId = resultSet.getInt(1);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            DBHelper.closeResultSet(resultSet);
+            DBHelper.closeStatement(statement);
+            DBHelper.closeConnection(connection);
+        }
+        return maxTaskId;
+    }
+
     private List<Task> initTasks(ResultSet resultSet) throws SQLException {
         List<Task> tasks = new ArrayList<>();
         while (resultSet.next()) {

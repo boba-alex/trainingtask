@@ -103,6 +103,27 @@ public class ProjectDAOImpl implements ProjectDAO {
         return projects.get(0);
     }
 
+    @Override
+    public int getMaxProjectId() {
+        Connection connection = DBHelper.getConnection();
+        Statement statement = null;
+        ResultSet resultSet = null;
+        int maxProjectId = 0;
+        try {
+            statement = connection.createStatement();
+            resultSet = statement.executeQuery(ConstantsSQL.SQL_QUERY_MAX_PROJECT_ID);
+            resultSet.next();
+            maxProjectId = resultSet.getInt(1);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            DBHelper.closeResultSet(resultSet);
+            DBHelper.closeStatement(statement);
+            DBHelper.closeConnection(connection);
+        }
+        return maxProjectId;
+    }
+
     private List<Project> initProjects(ResultSet resultSet) throws SQLException {
         List<Project> projects = new ArrayList<>();
         while (resultSet.next()) {

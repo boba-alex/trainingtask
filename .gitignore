@@ -27,3 +27,19 @@ hs_err_pid*
 #ignore gradle build
 
 .gradle/
+
+# need this folder
+!gradle/
+
+build/
+com.qulix.polishchukam.trainingtask.dao/build/
+com.qulix.polishchukam.trainingtask.dao/out/
+com.qulix.polishchukam.trainingtask.entity/build/
+com.qulix.polishchukam.trainingtask.entity/out/
+com.qulix.polishchukam.trainingtask.service/build/
+com.qulix.polishchukam.trainingtask.service/out/
+com.qulix.polishchukam.trainingtask.validation/build/
+com.qulix.polishchukam.trainingtask.validation/out/
+com.qulix.polishchukam.trainingtask.web/build/
+com.qulix.polishchukam.trainingtask.web/out/
+hsqldb/

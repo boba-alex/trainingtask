@@ -3,6 +3,7 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
          version="4.0">
+    <display-name>Application</display-name>
     <welcome-file-list>
         <welcome-file>/jsp/list-of-projects.jsp</welcome-file>
     </welcome-file-list>
@@ -26,4 +27,52 @@
         <error-code>500</error-code>
         <location>/jsp/error.jsp</location>
     </error-page>
+    <servlet>
+        <servlet-name>list-of-collaborators</servlet-name>
+        <jsp-file>/jsp/list-of-collaborators.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>list-of-collaborators</servlet-name>
+        <url-pattern>/list-of-collaborators</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>list-of-projects</servlet-name>
+        <jsp-file>/jsp/list-of-projects.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>list-of-projects</servlet-name>
+        <url-pattern>/list-of-projects</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>list-of-tasks</servlet-name>
+        <jsp-file>/jsp/list-of-tasks.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>list-of-tasks</servlet-name>
+        <url-pattern>/list-of-tasks</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>add-collaborator</servlet-name>
+        <jsp-file>/jsp/add-collaborator.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>add-collaborator</servlet-name>
+        <url-pattern>/add-collaborator</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>add-project</servlet-name>
+        <jsp-file>/jsp/add-project.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>add-project</servlet-name>
+        <url-pattern>/add-project</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>add-task</servlet-name>
+        <jsp-file>/jsp/add-task.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>add-task</servlet-name>
+        <url-pattern>/add-task</url-pattern>
+    </servlet-mapping>
 </web-app>

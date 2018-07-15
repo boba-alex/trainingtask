@@ -121,3 +121,7 @@
 .mypadding-div{
     padding: 15px 0px 15px 0px;
 }
+
+.textarea-noresize{
+    resize: none;
+}

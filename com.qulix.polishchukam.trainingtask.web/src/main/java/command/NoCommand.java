@@ -10,7 +10,7 @@ import java.io.IOException;
 public class NoCommand implements Command {
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String page = PathManager.getInstance().getProperty(PathManager.INDEX_PAGE_PATH);
+        String page = PathManager.getInstance().getProperty(PathManager.INDEX_URL_PATH);
         return page;
     }
 }

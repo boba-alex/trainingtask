@@ -13,6 +13,7 @@
             <option value="$PROJECT_DIR$/com.qulix.polishchukam.trainingtask.dao" />
             <option value="$PROJECT_DIR$/com.qulix.polishchukam.trainingtask.entity" />
             <option value="$PROJECT_DIR$/com.qulix.polishchukam.trainingtask.service" />
+            <option value="$PROJECT_DIR$/com.qulix.polishchukam.trainingtask.validation" />
             <option value="$PROJECT_DIR$/com.qulix.polishchukam.trainingtask.web" />
           </set>
         </option>

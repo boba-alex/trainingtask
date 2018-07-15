@@ -1,6 +1,7 @@
 include 'com.qulix.polishchukam.trainingtask.entity'
 include 'com.qulix.polishchukam.trainingtask.dao'
 include 'com.qulix.polishchukam.trainingtask.service'
+include 'com.qulix.polishchukam.trainingtask.validation'
 include 'com.qulix.polishchukam.trainingtask.web'
 
 rootProject.name = 'trainingtask'

@@ -1,8 +1,9 @@
 package entity;
 
 import java.time.LocalDate;
+import java.util.Objects;
 
-public class Task extends BaseEntity{
+public class Task extends BaseEntity {
     private String name;
     private int workInHours;
     private LocalDate beginTime;
@@ -79,6 +80,27 @@ public class Task extends BaseEntity{
     }
 
     @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Task task = (Task) o;
+        if(this.getId() == task.getId())
+            return true;
+        return workInHours == task.workInHours &&
+                Objects.equals(name, task.name) &&
+                Objects.equals(beginTime, task.beginTime) &&
+                Objects.equals(endTime, task.endTime) &&
+                taskStatus == task.taskStatus &&
+                Objects.equals(collaborator, task.collaborator) &&
+                Objects.equals(project, task.project);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name, workInHours, beginTime, endTime, taskStatus, collaborator, project);
+    }
+
+    @Override
     public String toString() {
         return "entity.Task{" + super.toString() +
                 "name='" + name + '\'' +
@@ -86,6 +108,7 @@ public class Task extends BaseEntity{
                 ", beginTime=" + beginTime +
                 ", endTime=" + endTime +
                 ", taskStatus=" + taskStatus +
+                ", projectID=" + project.getId() +
                 '}';
     }
 }

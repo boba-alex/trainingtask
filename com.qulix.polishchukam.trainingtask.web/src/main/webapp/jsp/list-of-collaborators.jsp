@@ -9,8 +9,8 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
-    <title>List of workers</title>
-    <link rel="stylesheet" type="text/css" href="/css/style.css">
+    <title>Список сотрудников</title>
+    <link rel="stylesheet" type="text/css" href="../css/style.css">
 </head>
 <body>
 <jsp:include page="/jsp/header.jsp"/>
@@ -19,20 +19,20 @@
         <c:param name="command" value="add-collaborator"/>
     </c:url>
     <a href="${addLink}">
-        <button class="mybutton">Add+</button>
+        <button class="mybutton">Добавить</button>
     </a>
 </div>
 <jsp:useBean id="collaboratorService" class="service.CollaboratorService"/>
 <table class="mytable-table mytable-table-horizontal mytable-table-highlight">
     <thead>
     <tr>
-        <th>Id</th>
-        <th>Surname</th>
-        <th>Name</th>
-        <th>Patronymic</th>
-        <th>Position</th>
-        <th>Edit</th>
-        <th>Delete</th>
+        <th>Идентификатор</th>
+        <th>Фамилия</th>
+        <th>Имя</th>
+        <th>Отчество</th>
+        <th>Должность</th>
+        <th></th>
+        <th></th>
     </tr>
     </thead>
     <tbody>
@@ -51,9 +51,9 @@
             <td>${eachCollaborator.name}</td>
             <td>${eachCollaborator.patronymic}</td>
             <td>${eachCollaborator.position}</td>
-            <td><a href="${editLink}">Edit</a></td>
+            <td><a href="${editLink}">Изменить</a></td>
             <td><a href="${deleteLink}"
-                   onclick="if (!(confirm('Are u sure u want to delete this worker?'))) return false">Delete
+                   onclick="if (!(confirm('Вы уверены, что хотите удалить этого сотрудника?'))) return false">Удалить
             </a></td>
         </tr>
     </c:forEach>
