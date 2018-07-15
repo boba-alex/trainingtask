@@ -1,0 +1,23 @@
+include 'com.qulix.polishchukam.trainingtask.entity'
+include 'com.qulix.polishchukam.trainingtask.dao'
+include 'com.qulix.polishchukam.trainingtask.service'
+include 'com.qulix.polishchukam.trainingtask.web'
+
+rootProject.name = 'trainingtask'
+
+// for HSQLDB
+//lib version
+gradle.ext.hsqldbVersion = '2.4.0'
+//default database config
+gradle.ext.dbName = "trainingtaskdb"
+gradle.ext.dbFile = "hsqldb/trainingtaskdb"
+gradle.ext.dbUser = "SA"
+gradle.ext.dbPassword = ""
+gradle.ext.dbPort = 9001
+gradle.ext.dbHost = "localhost"
+gradle.ext.dbUrl = "jdbc:hsqldb:hsql://${gradle.dbHost}:${gradle.dbPort}/${gradle.dbName}"
+gradle.ext.dbDrive = "org.hsqldb.jdbc.JDBCDriver"
+
+gradle.ext.createSQL = "create.sql"
+gradle.ext.fillSQL = "fill.sql"
+gradle.ext.dropSQL = "drop.sql"
