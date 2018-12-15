@@ -29,7 +29,7 @@ hs_err_pid*
 .gradle/
 
 # need this folder
-!gradle/
+!gradle/wrapper/*
 
 build/
 com.qulix.polishchukam.trainingtask.dao/build/
